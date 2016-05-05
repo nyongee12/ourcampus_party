@@ -1,2 +1,53 @@
-<h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
+<style>
+  table {
+    margin: 30px;
+  }
+  table tr th {
+    border-top: 1px solid black;
+  }
+  table tr td {
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+  }
+</style>
+
+<table>
+  <tr>
+    <th style="width:10%">대학</th>
+    <th style="width:40%">일정</th>
+    <th style="width:35%">초대 가수</th>
+    <th style="width:10%"></th>
+  </tr>
+<% @fs.each do |f| %>
+  <tr>
+    <td><%= f.univ.name %></td>
+    <td><%= f.schedules.first.date.strftime("%y.%m.%d") %> ~ <%= f.schedules.last.date.strftime("%y.%m.%d") %></td>
+    <td>
+      <% celebs = [] %>
+      <% f.festival_schedules.each { |fs| celebs += fs.celebs.pluck(:name) } %>
+      <%= celebs.join(", ") %>
+    </td>
+    <td><a href="/details/<%=f.id%>" class="btn btn-default">상세보기</a></td>
+  </tr>
+<% end %>
+</table>
+
+<h4>검색조건</h4>
+<p>시작날짜 : <%=@from%></p>
+<p>종료날짜 : <%=@to%></p>
+<p>대학교 : <%=@univ%></p>
+<p>연예인 : <%=@celeb%></p>
+
+<h4>검색</h4>
+<%= form_tag '/home/index', method:'get' do %>
+  <%= label_tag :from, '시작날짜' %>
+  <%= number_field_tag :from %>
+  <%= label_tag :to, '종료날짜' %>
+  <%= number_field_tag :to %>
+  <%= label_tag :univ, '대학교' %>
+  <%= text_field_tag :univ %>
+  <%= label_tag :celeb, '연예인' %>
+  <%= text_field_tag :celeb %>
+
+  <%= submit_tag :확인, class:'btn btn-default' %>
+<% end %>
