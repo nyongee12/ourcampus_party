@@ -1,0 +1,19 @@
+/*네비게이션바 관련 css */
+#title {
+    height: 50px;
+    display:table-cell;
+    
+    font-size: 20px;
+    font-weight: bold;
+}
+.container-fluid {
+    text-align: -webkit-center;
+}
+.container-fluid > * {
+  vertical-align: middle;
+}
+.navbar-default {
+    background-color: #75DDA1 !important;
+    color: #fff !important;
+    border: none;
+}
