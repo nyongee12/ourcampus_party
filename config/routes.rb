@@ -1,6 +1,12 @@
 Rails.application.routes.draw do
+<<<<<<< HEAD
   root 'home#index'
   get 'home/index'
+=======
+  get 'home/index'
+
+  get 'details/:id' => 'home#detail'
+>>>>>>> b9c626a0dcbe786d15be5ac2b3c324c07b86d549
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
