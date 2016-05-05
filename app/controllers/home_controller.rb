@@ -1,9 +1,5 @@
 class HomeController < ApplicationController
   def index
-    @from = params[:from]
-    @to = params[:to]
-    @univ = params[:univ]
-    @celeb = params[:celeb]
     univs = Univ.where("name LIKE ?", "%#{params[:univ]}%").pluck(:id)
     celebs = Celeb.where("name LIKE ?", "%#{params[:celeb]}%").pluck(:id)
 

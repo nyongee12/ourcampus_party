@@ -4,6 +4,7 @@ gem 'bootstrap-sass'
 gem 'simple_form'
 gem 'jquery-ui-rails'
 gem 'jquery_mobile_rails'
+gem 'kaminari'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.5'
 # Use sqlite3 as the database for Active Record
