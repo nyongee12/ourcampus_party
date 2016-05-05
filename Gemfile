@@ -4,6 +4,7 @@ gem 'bootstrap-sass'
 gem 'simple_form'
 gem 'jquery-ui-rails'
 gem 'kaminari'
+gem "font-awesome-rails"
 
 # gem 'jquery_mobile_rails'
 

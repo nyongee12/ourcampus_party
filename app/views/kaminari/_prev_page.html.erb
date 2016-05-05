@@ -8,10 +8,12 @@
 -%>
 <span class="prev">
   <% unless current_page.first? %>
-    <a href="<%=url%>" class="paginate_arr" data-remote="<%=remote%>"><span class="glyphicon glyphicon-triangle-left"></span></a>
+    <a href="<%=url%>" class="paginate_arr" data-remote="<%=remote%>">
+      <i class="fa fa-angle-left" aria-hidden="true" style="font-size: 17px"></i>
+    </a>
   <% else %>
     <a href="javascript:void(0);" style="cursor:default" class="paginate_arr" data-remote="<%=remote%>">
-      <span style="color: #aaa;" class="glyphicon glyphicon-triangle-left"></span>
+      <i class="fa fa-angle-left" aria-hidden="true" style="color: #aaa; font-size: 17px"></i>
     </a>
   <% end %>
 </span>
