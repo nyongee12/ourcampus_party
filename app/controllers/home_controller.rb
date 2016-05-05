@@ -7,16 +7,19 @@ class HomeController < ApplicationController
     if (params[:from].nil? || params[:from] == "") && (params[:to].nil? || params[:to] == "")
       schedules = Schedule.all
     elsif params[:from].nil? || params[:from] == ""
-      schedules = Schedule.find([params[:to], params[:to]])
-      @to = Schedule.find(params[:to]).date
+      date = get_date(params[:to])
+      schedules = Schedule.where(date: date)
     elsif params[:to].nil? || params[:to] == ""
-      schedules = Schedule.find([params[:from], params[:from]])
-      @from = Schedule.find(params[:from]).date
+      date = get_date(params[:from])
+      schedules = Schedule.where(date: date)
     else
-      schedules = Schedule.find([params[:from], params[:to]])
-      @to = Schedule.find(params[:to]).date
-      @from = Schedule.find(params[:from]).date
+      from_date = get_date(params[:from])
+      to_date = get_date(params[:to])
+
+      schedules = Schedule.all.select { |m| m.date >= from_date && m.date <= to_date }
     end
+
+
 
     # select univ
     tmp_festivals = []
@@ -46,4 +49,12 @@ class HomeController < ApplicationController
   def detail
     @f = Festival.find(params[:id])
   end
+
+  private
+  def get_date date
+    date_arr = date.split('/')
+    date_arr.map! { |a| a.to_i }
+    return DateTime.new(date_arr[0],date_arr[1],date_arr[2])
+  end
+
 end
