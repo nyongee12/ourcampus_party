@@ -7,12 +7,14 @@
     .container-box {
     width: 600px;
     margin:0 auto;
+    background-color: #fff;
     }
 }
 @media (max-width: 599px) {
     .container-box {
     width: 100%;
     margin:0 auto;
+    background-color: #fff;
     }
 }
 //전체 레이아웃 너비 조정
@@ -21,7 +23,11 @@
     margin-left:15px;
     margin-right:15px;
 }
+.content-box {
+    margin-left:15px;
+    margin-right:15px;
+}
 
-.ui-listview {
-    display: none;
+.result-table {
+    margin-top: 30px;   
 }

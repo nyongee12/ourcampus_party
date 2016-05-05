@@ -69,8 +69,6 @@ GEM
       thor (>= 0.14, < 2.0)
     jquery-ui-rails (5.0.5)
       railties (>= 3.2.16)
-    jquery_mobile_rails (1.4.5)
-      railties (>= 3.1.0)
     json (1.8.3)
     kaminari (0.16.3)
       actionpack (>= 3.0.0)
@@ -164,8 +162,11 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   jquery-ui-rails
+<<<<<<< HEAD
   jquery_mobile_rails
   kaminari
+=======
+>>>>>>> 606fc83f0f64731645e0100d72d2e4ca6dea2660
   rails (= 4.2.5)
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
