@@ -1,0 +1,17 @@
+<%# Link to the "Last" page
+  - available local variables
+    url:           url to the last page
+    current_page:  a page object for the currently displayed page
+    total_pages:   total number of pages
+    per_page:      number of items to fetch per page
+    remote:        data-remote
+-%>
+<span class="last">
+  <% unless current_page.last? %>
+    <a href="<%=url%>" class="paginate_arr" data-remote="<%=remote%>"><span class="glyphicon glyphicon-forward"></span></a>
+  <% else %>
+    <a href="javascript:void(0);" style="cursor:default" class="paginate_arr" data-remote="<%=remote%>">
+      <span style="color: #aaa;" class="glyphicon glyphicon-forward"></span>
+    </a>
+  <% end %>
+</span>
