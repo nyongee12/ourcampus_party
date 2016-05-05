@@ -11,12 +11,22 @@
         <%= text_field_tag :university, '',:class => 'form-control', :placeholder => '학교 검색' %>
     <% end %>
     
-    <%= render 'home/autocomplete' %>
+    <%#= render 'home/autocomplete' %>
 </div>
 <script>
   $(document).ready(function(){
-    $( "#date_from" ).datepicker();
-    $( "#date_to" ).datepicker();
+    $( "#date_from" ).datepicker({
+      dateFormat: 'yy/mm/dd'
+    });
+    $( "#date_to" ).datepicker({
+      dateFormat: 'yy/mm/dd'
+    });
+    $( "#university" ).autocomplete({
+      focus: function(event, ui) {
+        return false;
+      },
+      source: <%=raw Univ.all.pluck(:name)%>
+    });
   });
 
 </script>
