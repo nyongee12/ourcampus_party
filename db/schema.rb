@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160505065341) do
+ActiveRecord::Schema.define(version: 20160508055239) do
 
   create_table "celeb_festival_schedules", force: :cascade do |t|
     t.integer  "festival_schedule_id"
