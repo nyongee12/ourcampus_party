@@ -6,33 +6,24 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+require 'csv'
+
 # make schedule
-6.upto(31) do |i|
+9.upto(31) do |i|
   Schedule.create(date: DateTime.new(2016, 5, i))
 end
 
 # make univ
-Univ.create(name: '서강대학교')
-Univ.create(name: '한양대학교')
-Univ.create(name: '단국대학교')
-Univ.create(name: '한양대학교 에리카')
-Univ.create(name: '연세대학교')
-Univ.create(name: '이화여자대학교')
-Univ.create(name: '서울대학교')
+file = open('public/Univ.csv')
+Univ.import(file)
 
 # make festival
-1.upto(6) do |i|
-  Festival.create(univ_id: i)
-end
+file = open('public/Festival.csv')
+Festival.import(file)
 
 # make festival_schedule
-1.upto(6) do |i|
-  start = (1..23).to_a.sample
-  count = (2..4).to_a.sample
-  start.upto(start+count) do |id|
-    FestivalSchedule.create(festival_id: i, schedule_id: id)
-  end
-end
+file = open('public/FestivalSchedule.csv')
+FestivalSchedule.import(file)
 
 # make celeb
 Celeb.create(name: '거미')
@@ -42,14 +33,32 @@ Celeb.create(name: '여자친구')
 Celeb.create(name: '마마무')
 Celeb.create(name: '10cm')
 Celeb.create(name: '싸이')
+Celeb.create(name: '버벌진트')
+Celeb.create(name: '다이나믹듀오')
+Celeb.create(name: '어쿠스틱콜라보')
+Celeb.create(name: '블랙넛')
+Celeb.create(name: '씨스타')
+Celeb.create(name: 'DJ DOC')
+Celeb.create(name: '기리보이')
+Celeb.create(name: '빈지노')
+Celeb.create(name: '도끼')
+Celeb.create(name: '산이')
+Celeb.create(name: '로꼬')
+Celeb.create(name: '러블리')
+Celeb.create(name: '시크릿')
+Celeb.create(name: '트와이스')
+
 
 # make celeb_festival_schedule
-1.upto(7) do |i|
+Celeb.all.each do |c|
   count = (2..5).to_a.sample
-  fs = FestivalSchedule.order("RANDOM()").first(count)
-  fs.each do |f|
-    CelebFestivalSchedule.create(celeb_id: i, festival_schedule_id: f.id)
+  j = 0
+  while
+    fs = FestivalSchedule.order("RANDOM()").first
+    next if c.festival_schedules.where(festival_id: fs.festival_id).count > 0
+    j+=1
+    c.celeb_festival_schedules.create(festival_schedule_id: fs.id)
+    break if j >= count
   end
-
 end
 
