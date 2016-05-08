@@ -1,7 +1,7 @@
 
     <h3>일정 검색</h3>
     
-    <%= form_tag '/home/index', remote: true do %>
+    <%= form_tag '/home/index', remote: true, onsubmit:'clearTable();' do %>
         <div class="col-xs-12">
           <div class="input-group">
                     

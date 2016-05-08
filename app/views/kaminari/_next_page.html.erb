@@ -6,14 +6,19 @@
     per_page:      number of items to fetch per page
     remote:        data-remote
 -%>
-<span class="next">
-  <% unless current_page.last? %>
-    <a href="<%=url%>" class="paginate_arr" data-remote="<%=remote%>">
-      <i class="fa fa-angle-right" aria-hidden="true" style="font-size: 17px"></i>
-    </a>
-  <% else %>
-    <a href="javascript:void(0);" style="cursor:default" class="paginate_arr" data-remote="<%=remote%>">
-      <i class="fa fa-angle-right" aria-hidden="true" style="color: #aaa; font-size: 17px"></i>
-    </a>
-  <% end %>
+<!--<span class="next">-->
+  <!--<%# unless current_page.last? %>-->
+    <!--<a href="<%#=url%>" class="paginate_arr" data-remote="<%#=remote%>">-->
+      <!--<i class="fa fa-angle-right" aria-hidden="true" style="font-size: 17px"></i>-->
+    <!--</a>-->
+  <!--<%# else %>-->
+    <!--<a href="javascript:void(0);" style="cursor:default" class="paginate_arr" data-remote="<%#=remote%>">-->
+      <!--<i class="fa fa-angle-right" aria-hidden="true" style="color: #aaa; font-size: 17px"></i>-->
+    <!--</a>-->
+  <!--<%# end %>-->
+<!--</span>-->
+
+<span class="alignCenter">
+  <a href="<%=url%>" data-remote="<%=remote%>">더 보기</a>
 </span>
+
