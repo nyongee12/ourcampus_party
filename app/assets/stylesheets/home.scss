@@ -30,7 +30,7 @@
 //섹션별 마진 설정
 
 //form 마진 설정
-#from, #to, #univ, #celeb {
+#univ, #celeb {
  margin-bottom: 10px;   
 }
 
@@ -38,4 +38,8 @@
 input[readonly].form-control {
     cursor: pointer;
     background: #fff;
+}
+
+.input-group {
+  margin-bottom: 10px;
 }
