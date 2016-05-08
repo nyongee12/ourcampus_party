@@ -13,5 +13,6 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery-ui
-//= require_tree .
 //= require bootstrap
+//= require datepick
+//= require custom_autocomplete

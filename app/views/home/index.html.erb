@@ -1,17 +1,22 @@
 <div class="container-box">
-    <%= render 'home/navbar' %>
-    
+        
     <div class="content-box">
+      
+      <!--검색 조건 입력 섹션-->
+      <div id="search-area">
         <%= render 'home/search_area' %>
-    
+      </div>
+      
+      <!--검색 결과 출력 -->
       <div id="search-result" class="result-table">
         <%= render(partial: "/home/result_area") %>
       </div>
+      
+      <!--검색 결과 pagenation -->
       <div class="paginate">
         <%= paginate @fs, remote: true %>
       </div>
     
     </div>
-    
-    
+        
 </div>
