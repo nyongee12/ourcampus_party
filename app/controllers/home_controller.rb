@@ -43,7 +43,7 @@ class HomeController < ApplicationController
       festivals << f if status == true
     end
 
-    @fs = Kaminari.paginate_array(festivals).page(params[:page]).per(2)
+    @fs = Kaminari.paginate_array(festivals).page(params[:page]).per(7)
   end
 
   def detail

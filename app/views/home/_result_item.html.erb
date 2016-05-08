@@ -1,0 +1,12 @@
+<% @fs.each do |f| %>
+    <tr class="result-item">
+      <td><%= f.univ.name %></td>
+      <td><%= f.schedules.first.date.strftime("%y.%m.%d") %> ~ <%= f.schedules.last.date.strftime("%y.%m.%d") %></td>
+      <td>
+        <% celebs = [] %>
+        <% f.festival_schedules.each { |fs| celebs += fs.celebs.pluck(:name) } %>
+        <%= celebs.join(", ") %>
+      </td>
+      <td><a href="/details/<%=f.id%>" class="btn btn-default">상세보기</a></td>
+    </tr>
+<% end %>

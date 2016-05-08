@@ -1,22 +1,11 @@
 <h3>검색 결과</h3>
 <p>검색조건에 만족하는 학교별 일정입니다.</p>
-<table class="table">
+<table class="table" id="result-table">
   <tr>
     <th>대학</th>
     <th>일정</th>
     <th>초대 가수</th>
     <th></th>
   </tr>
-  <% @fs.each do |f| %>
-      <tr>
-        <td><%= f.univ.name %></td>
-        <td><%= f.schedules.first.date.strftime("%y.%m.%d") %> ~ <%= f.schedules.last.date.strftime("%y.%m.%d") %></td>
-        <td>
-          <% celebs = [] %>
-          <% f.festival_schedules.each { |fs| celebs += fs.celebs.pluck(:name) } %>
-          <%= celebs.join(", ") %>
-        </td>
-        <td><a href="/details/<%=f.id%>" class="btn btn-default">상세보기</a></td>
-      </tr>
-  <% end %>
+  <%= render partial: '/home/result_item' %>
 </table>

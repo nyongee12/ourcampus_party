@@ -1,2 +1,2 @@
-$('#search-result').html('<%= j render(partial: "/home/result_area") %>');
+$('#search-result tbody').append('<%= j render(partial: "/home/result_item") %>');
 $('.paginate').html('<%= escape_javascript(paginate(@fs, :remote => true).to_s) %>');

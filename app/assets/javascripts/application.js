@@ -16,3 +16,5 @@
 //= require bootstrap
 //= require datepick
 //= require custom_autocomplete
+//= require jquery.infinitescroll
+//= require infinite_scroll.js.erb

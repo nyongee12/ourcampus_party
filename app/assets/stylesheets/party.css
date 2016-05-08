@@ -2,10 +2,34 @@
 .paginate {
     clear: both;
     text-align: center;
-    line-height: 1.9em;
-    padding-top: 10px;
+    height: 50px;
+    /*padding-top: 10px;*/
+}
+.paginate nav.pagination {
+    display: block;
+    height: 100%;
+    margin: 0;
+    background-color: #e6e6e6;
+    border-radius: 0;
+}
+.paginate nav.pagination a {
+    cursor: default;
+    color: #808080;
+    font-size: 12pt;
 }
 
+.alignCenter {
+    position: relative;
+    display: block;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+}
+/*
 .paginate a.paginate_arr {
     width: 26px;
     height: 25px;
@@ -70,3 +94,4 @@
 .paginate .page:last-child > a {
     margin-right: 10px;
 }
+*/
