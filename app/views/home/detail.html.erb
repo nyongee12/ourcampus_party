@@ -10,8 +10,8 @@
 
     <table class="table" id="detail-table">
       <tr>
-        <th style="width:25%">날짜</th>
-        <th style="width:70%">라인업</th>
+        <th style="width:15%">날짜</th>
+        <th style="width:85%">라인업</th>
       </tr>
       <% @f.festival_schedules.each do |fs| %>
           <tr>
@@ -22,8 +22,10 @@
           </tr>
       <% end %>
     </table>
-    <%= link_to @f.univ.path_link do %>
+    <div style="display:block; text-align: center;">
+    <%= link_to "http://map.naver.com" do %>
       <%= image_tag("naver_map_logo", height: '64', width: '64') %>
     <% end %>
+    </div>
   </div>
 </div>

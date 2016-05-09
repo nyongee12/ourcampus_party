@@ -17,10 +17,16 @@
               var data_list_univ = <%=raw Univ.all.pluck(:name)%>;
               var data_list_celeb = <%=raw Celeb.all.pluck(:name)%>;
               $( "#univ" ).autocomplete({
-                  source: data_list_univ
+                  source: data_list_univ,
+                  close: function() {
+                    $('#univ').autocomplete('close');
+                  }
               });
               $( "#celeb" ).autocomplete({
                   source: data_list_celeb
+                  close: function() {
+                    $('#celeb').autocomplete('close');
+                  }
               });
               
         });
