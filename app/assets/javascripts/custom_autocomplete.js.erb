@@ -3,7 +3,7 @@
           $.ui.autocomplete.prototype._renderItem = function( ul, item) {
                             
               var re = new RegExp( "(" + this.term + ")", "gi" );
-              var color_string = item.label.replace(re,"<span style='font-weight:bold;color: #EA4C89;'>" + this.term + "</span>");
+              var color_string = item.label.replace(re,"<span style='font-weight:bold;color:Blue;'>" + this.term + "</span>");
               return $( "<li></li>" )
                   .data( "item.autocomplete", item )
                   .append( "<a>" + color_string + "</a>" )
@@ -14,20 +14,25 @@
 
           monkeyPatchAutocomplete();
           $(function() {
-              var data_list_univ = <%=raw Univ.all.pluck(:name)%>;
-              var data_list_celeb = <%=raw Celeb.all.pluck(:name)%>;
-              $( "#univ" ).autocomplete({
-                  source: data_list_univ,
-                  close: function() {
-                    $('#univ').autocomplete('close');
-                  }
-              });
-              $( "#celeb" ).autocomplete({
-                  source: data_list_celeb
-                  close: function() {
-                    $('#celeb').autocomplete('close');
-                  }
-              });
+            $.ajax({
+              url: '/home/get_name',
+              success: function(data) {
+                if( data.result == true ) {
+                  var data_list_univ = data.univs;
+                  var data_list_celeb = data.celebs;
+                  $("#univ").autocomplete({
+                    source: data_list_univ
+                  });
+                  $("#celeb").autocomplete({
+                    source: data_list_celeb
+                  });
+                }
+              },
+              error : function(xhr, status, error) {
+                alert("에러발생");
+              }
+            });
+
               
         });
       });

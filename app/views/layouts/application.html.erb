@@ -9,8 +9,19 @@
   <%= stylesheet_link_tag    'application', media: 'all' %>
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico"/>
+
+  <meta property="og:url"           content="http://ourcampus.party" />
+  <meta property="og:type"          content="website" />
+  <meta property="og:title"         content="전국 대학 축제" />
+  <meta property="og:description"   content="전국 대학 축제" />
+  <!--<meta property="og:image"         content="" />-->
+  <meta property="fb:app_id"        content="1019242451500441" />
 </head>
 <body>
+
+<div class="fb-like" data-href="https://ourcampus.party" data-layout="button_count" data-action="like" data-show-faces="true" data-share="true"></div>
 
 <%= yield %>
 
@@ -29,6 +40,7 @@
     </div>
 </footer>
 
+<div id="fb-root"></div>
 
 <script>
   // google analytics
@@ -39,6 +51,16 @@
 
   ga('create', 'UA-77456544-1', 'auto');
   ga('send', 'pageview');
+
+  // facebook analytics
+
+  (function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/ko_KR/sdk.js#xfbml=1&version=v2.6&appId=1019242451500441";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
 
 </script>
 </body>
