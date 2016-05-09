@@ -6,16 +6,26 @@
     /*padding-top: 10px;*/
 }
 .paginate nav.pagination {
+    position: relative;
     display: block;
     height: 100%;
     margin: 0;
     background-color: #e6e6e6;
     border-radius: 0;
 }
+.paginate nav.pagination span.next {
+    position: absolute;
+    top:0; left:0;
+    width:100%; height:100%;
+}
 .paginate nav.pagination a {
     cursor: default;
     color: #808080;
     font-size: 12pt;
+}
+.paginate nav.pagination a:hover, a:focus {
+    color: #fff;
+    text-decoration: none;
 }
 
 .alignCenter {
