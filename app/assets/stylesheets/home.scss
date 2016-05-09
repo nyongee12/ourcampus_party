@@ -79,3 +79,49 @@ input[readonly].form-control {
     font-family: 'nanum_bold';
     font-size: 13pt;
 }
+
+// 테이블 설정
+th {
+  color: #808080;
+}
+// 메인 페이지 테이블
+#result-table tr td {
+  color: #4d4d4d;
+}
+#result-table {
+  font-size: 11pt;
+}
+// 디테일 페이지 테이블
+#detail-table tr td {
+  color: #4d4d4d;    
+  font-size: 15pt;
+}
+// 디테일 페이지 타이틀
+#detail-title {
+  color: #ea4c89;
+  font-size: 20pt;
+  font-family: 'nanum_bold';
+}
+
+// close 아이콘 효과
+a > i.fa-times {
+  color: #fff;
+}
+a > i.fa-times:hover {
+   color: #e6e6e6;
+}
+a > i.fa-times:action {
+   color: #808080; 
+}
+
+a > i.fa-angle-right {
+  color:#808080;
+  font-size: 15pt;
+  font-weight: bold;
+}
+a > i.fa-angle-right:hover {
+   color: #ea4c89;
+}
+a > i.fa-angle-right:action {
+   color: #808080; 
+}
