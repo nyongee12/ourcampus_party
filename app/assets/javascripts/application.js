@@ -17,4 +17,5 @@
 //= require datepick
 //= require custom_autocomplete
 //= require jquery.infinitescroll
-//= require infinite_scroll.js.erb
+//= require infinite_scroll
+//= require home.coffee
