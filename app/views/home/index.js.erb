@@ -1,2 +1,3 @@
-$('#search-result tbody').append('<%= j render(partial: "/home/result_item") %>');
+$('#search-result tbody').append('<%= j render(partial: "/home/result_item", layout: false) %>');
 $('.paginate').html('<%= escape_javascript(paginate(@fs, :remote => true).to_s) %>');
+$.getScript("/assets/infinite_scroll.js.erb");

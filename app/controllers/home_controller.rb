@@ -44,6 +44,7 @@ class HomeController < ApplicationController
     end
 
     @fs = Kaminari.paginate_array(festivals).page(params[:page]).per(7)
+
   end
 
   def detail
