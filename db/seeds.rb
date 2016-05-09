@@ -13,18 +13,22 @@ require 'csv'
   Schedule.create(date: DateTime.new(2016, 5, i))
 end
 
-# make univ
-file = open('public/Univ.csv')
-Univ.import(file)
+# # make univ
+# file = open('public/Univ.csv')
+# Univ.import(file)
+#
+# # make festival
+# file = open('public/Festival.csv')
+# Festival.import(file)
+#
+# # make festival_schedule
+# file = open('public/FestivalSchedule.csv')
+# FestivalSchedule.import(file)
 
-# make festival
-file = open('public/Festival.csv')
+file = open('public/Festival_2016May.csv')
 Festival.import(file)
 
-# make festival_schedule
-file = open('public/FestivalSchedule.csv')
-FestivalSchedule.import(file)
-
+=begin
 # make celeb
 Celeb.create(name: '거미')
 Celeb.create(name: '아이유')
@@ -61,4 +65,5 @@ Celeb.all.each do |c|
     break if j >= count
   end
 end
+=end
 

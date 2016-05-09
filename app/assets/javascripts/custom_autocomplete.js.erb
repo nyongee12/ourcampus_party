@@ -14,8 +14,8 @@
 
           monkeyPatchAutocomplete();
           $(function() {
-              var data_list_univ = <%= raw Univ.all.pluck(:name) %>;
-              var data_list_celeb = <%= raw Celeb.all.pluck(:name) %>;
+              var data_list_univ = <%=raw Univ.all.pluck(:name)%>;
+              var data_list_celeb = <%=raw Celeb.all.pluck(:name)%>;
               $( "#univ" ).autocomplete({
                   source: data_list_univ
               });

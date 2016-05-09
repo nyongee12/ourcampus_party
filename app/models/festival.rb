@@ -9,8 +9,29 @@ class Festival < ActiveRecord::Base
     CSV.foreach(file.path, headers: true) do |row|
 
       festival_hash = row.to_hash
-      festival = Festival.find_or_create_by(id: festival_hash[:id])
-      festival.update_attributes(festival_hash)
+
+      # create or select univ
+      univ = Univ.find_or_create_by(name: festival_hash["univ"])
+
+      # create festival
+      festival = Festival.create(univ_id: univ.id)
+
+      # create festival_schedule
+      festival_hash["schedules"].split(",").each do |s|
+        schedule_id = s.to_i-8
+        FestivalSchedule.find_or_create_by(festival_id: festival.id, schedule_id: schedule_id)
+      end
+
+      # create celeb & celeb_festival_schedule
+      festival.festival_schedules.each_with_index do |fs, idx|
+        str = festival_hash["day#{idx+1}"]
+        next if str.nil?
+        str.split(",").each do |s|
+          celeb = Celeb.find_or_create_by(name: s)
+          CelebFestivalSchedule.find_or_create_by(festival_schedule_id: fs.id, celeb_id: celeb.id)
+        end
+      end
+
     end
   end
 end
