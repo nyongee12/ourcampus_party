@@ -38,3 +38,6 @@ Status API Training Shop Blog About
 .ds_store
 ._*
 *.swp
+
+# Ignore application configuration
+/config/application.yml
