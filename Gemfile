@@ -6,6 +6,8 @@ gem 'jquery-ui-rails'
 gem 'kaminari'
 gem "font-awesome-rails"
 
+gem 'figaro'
+
 # gem 'jquery_mobile_rails'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

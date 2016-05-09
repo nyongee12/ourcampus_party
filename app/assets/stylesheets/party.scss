@@ -1,0 +1,121 @@
+/************* paginate ****************/
+.paginate {
+    clear: both;
+    text-align: center;
+    height: 50px;
+    /*padding-top: 10px;*/
+}
+.paginate nav.pagination {
+    position: relative;
+    display: block;
+    height: 100%;
+    margin: 0;
+    background-color: #e6e6e6;
+    border-radius: 0;
+}
+.paginate nav.pagination span.next {
+    position: absolute;
+    top:0; left:0;
+    width:100%; height:100%;
+}
+.paginate nav.pagination a {
+    cursor: default;
+    color: #808080;
+    font-size: 12pt;
+}
+.paginate nav.pagination a:hover, a:focus {
+    color: #fff;
+    text-decoration: none;
+}
+
+.alignCenter {
+    position: relative;
+    display: block;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+}
+
+/* resize loading image */
+#infscr-loading {
+    position: fixed !important;
+    top: 0 !important; left: 0 !important;
+    width: 100% !important; height: 100% !important;
+    background-color: rgba(238, 238, 238, 0.43) !important;
+}
+#infscr-loading img {
+    position: absolute !important;
+    width:100px !important;
+    top: calc(50% - 50px) !important;
+    left: calc(50% - 50px) !important;
+}
+/*
+.paginate a.paginate_arr {
+    width: 26px;
+    height: 25px;
+    font-size: 14px;
+    line-height: 26px;
+    color: #737A85;
+    border: 1px solid #aaa;
+    margin:0;
+}
+.paginate a.paginate_arr:hover {
+    color: #aaa;
+}
+.paginate a {
+    vertical-align: top;
+    margin-right: 1px;
+    display: inline-block;
+    border: 1px solid rgb(219, 219, 219);
+}
+
+.paginate a {
+    border: #DBDBDB 1px solid;
+    width: 26px;
+    height: 25px;
+    line-height: 25px;
+    color: #6F6F6F;
+    font-weight: normal;
+    text-align: center;
+    padding: 0 !important;
+}
+.paginate .current_arr {
+    display: inline-block;
+    width: 26px !important;
+    height: 25px !important;
+    padding: 0 !important;
+    border: 1px solid rgb(219, 219, 219);
+    color: #E73C00;
+}
+
+.paginate .first > a {
+    border-top-left-radius: 2.5px;
+    border-bottom-left-radius: 2.5px;
+}
+.paginate .prev > a {
+    margin-left:-5px;
+    border-left: none;
+    border-top-right-radius: 2.5px;
+    border-bottom-right-radius: 2.5px;
+}
+.paginate .next > a {
+    margin-right:-5px;
+    border-right: none;
+    border-top-left-radius: 2.5px;
+    border-bottom-left-radius: 2.5px;
+}
+.paginate .last > a {
+    border-top-right-radius: 2.5px;
+    border-bottom-right-radius: 2.5px;
+}
+.paginate .page:first-child > a {
+    margin-left: 10px;
+}
+.paginate .page:last-child > a {
+    margin-right: 10px;
+}
+*/
