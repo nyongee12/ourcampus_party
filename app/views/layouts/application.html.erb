@@ -9,8 +9,18 @@
   <%= stylesheet_link_tag    'application', media: 'all' %>
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
+
+  <link rel="shortcut icon" type="image/png" href="/assets/favicon.ico"/>
+
+  <meta property="og:url"           content="http://ourcampus.party" />
+  <meta property="og:type"          content="website" />
+  <meta property="og:title"         content="전국 대학 축제" />
+  <meta property="og:description"   content="전국 대학 축제" />
+  <!--<meta property="og:image"         content="" />-->
+  <meta property="fb:app_id"        content="1019242451500441" />
 </head>
 <body>
+
 <div class="fb-like" data-href="https://ourcampus.party" data-layout="button_count" data-action="like" data-show-faces="true" data-share="true"></div>
 
 <%= yield %>
