@@ -1,42 +1,45 @@
 
-    <h3>일정 검색</h3>
+    <div id="main-title" class="col-xs-12">
+      <i class="fa fa-search" aria-hidden="true"></i>&nbsp;전국 대학 축제
+    </div>
     
     <%= form_tag '/home/index', remote: true, onsubmit:'clearTable();' do %>
+        
         <div class="col-xs-12">
-          <div class="input-group">
-                    
-            <label for="from" class="input-group-addon btn">
-              <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
-            </label>
-            <%= text_field_tag :from, "", :class => 'form-control show_default', :placeholder => '일정(from)', :readonly => true %>
-          </div><!-- /input-group -->
-        </div>
-        <div class="col-xs-12">
-          <div class="input-group">
-            
-            <label for="to" class="input-group-addon btn">
-              <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
-            </label>
-            
-            <%= text_field_tag :to, "", :class => 'form-control show_default', :placeholder => '일정(to)', :readonly => true %>
-          </div><!-- /input-group -->
-        </div>
-        <div class="col-xs-6">
           <%= text_field_tag :univ, '',:class => 'form-control', :placeholder => '학교 검색' %>
         </div>
+        
         <div class="col-xs-6">
-          <%= text_field_tag :celeb, '',:class => 'form-control', :placeholder => '연예인 검색' %>
+          <!--<div class="input-group">-->
+            <!--<label for="from" class="input-group-addon btn">-->
+            <!--  <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>-->
+            <!--</label>-->
+            <%= text_field_tag :from, "", :class => 'form-control show_default', :placeholder => '일정(from)', :readonly => true %>
+          <!--</div>-->
+        </div>
+        <div class="col-xs-6">
+          <!--<div class="input-group">-->
+            <!--<label for="to" class="input-group-addon btn">-->
+            <!--  <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>-->
+            <!--</label>-->
+            <%= text_field_tag :to, "", :class => 'form-control show_default', :placeholder => '일정(to)', :readonly => true %>
+          <!--</div>-->
+        </div>
+        
+        <div class="col-xs-6">
+          <%= text_field_tag :celeb, '',:class => 'form-control', :placeholder => '라인업' %>
         </div>
         
           <div class="col-xs-6">
             <% @keyword = {"신촌" => "신촌", "여대" => "여대","대학로" => "대학로","홍대" => "홍대" } %>
             <%= select_tag :keyword, options_for_select(@keyword), :class => 'form-control' %>
           </div>
-          <div class="col-xs-6">
+          <div style="clear:both"></div>
+          <div class="col-xs-12">
             <div data-no-turbolink>
-              <%= submit_tag "검색", data: { disable_with: "검색 중"}, :class => 'btn btn-success' %>
+              <%= submit_tag "검색", data: { disable_with: "검색 중"}, :class => 'btn btn-default search_button' %>
             </div>
           </div>
           <div style="clear:both"></div>
-    <% end %>
 
+    <% end %>
