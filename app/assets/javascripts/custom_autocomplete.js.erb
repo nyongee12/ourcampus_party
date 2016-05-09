@@ -3,7 +3,7 @@
           $.ui.autocomplete.prototype._renderItem = function( ul, item) {
                             
               var re = new RegExp( "(" + this.term + ")", "gi" );
-              var color_string = item.label.replace(re,"<span style='font-weight:bold;color:Blue;'>" + this.term + "</span>");
+              var color_string = item.label.replace(re,"<span style='font-weight:bold;color:#ea4c89;'>" + this.term + "</span>");
               return $( "<li></li>" )
                   .data( "item.autocomplete", item )
                   .append( "<a>" + color_string + "</a>" )
@@ -21,10 +21,16 @@
                   var data_list_univ = data.univs;
                   var data_list_celeb = data.celebs;
                   $("#univ").autocomplete({
-                    source: data_list_univ
+                    source: data_list_univ,
+                    focus: function(event, data) {
+                      return false;
+                    }
                   });
                   $("#celeb").autocomplete({
-                    source: data_list_celeb
+                    source: data_list_celeb,
+                    focus: function(event, data) {
+                      return false;
+                    }
                   });
                 }
               },
