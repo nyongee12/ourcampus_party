@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   
   get 'home/index'
   post 'home/index'
+
+  get 'home/get_name'
   
   get 'details/:id' => 'home#detail'
 

@@ -51,6 +51,19 @@ class HomeController < ApplicationController
     @f = Festival.find(params[:id])
   end
 
+  def get_name
+
+    respond_to do |format|
+      format.json{
+        render json: {
+            result: true,
+            univs: Univ.all.pluck(:name),
+            celebs: Celeb.all.pluck(:name)
+        }
+      }
+    end
+  end
+
   private
   def get_date date
     date_arr = date.split('/')

@@ -11,8 +11,11 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+<div class="fb-like" data-href="https://ourcampus.party" data-layout="button_count" data-action="like" data-show-faces="true" data-share="true"></div>
 
 <%= yield %>
+
+<div id="fb-root"></div>
 
 <script>
   // google analytics
@@ -23,6 +26,15 @@
 
   ga('create', 'UA-77456544-1', 'auto');
   ga('send', 'pageview');
+
+  // facebook analytics
+  (function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/ko_KR/sdk.js#xfbml=1&version=v2.6&appId=1019242451500441";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
 
 </script>
 
