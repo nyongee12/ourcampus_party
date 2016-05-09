@@ -3,6 +3,9 @@ class HomeController < ApplicationController
     univs = Univ.where("name LIKE ?", "%#{params[:univ]}%").pluck(:id)
     celebs = Celeb.where("name LIKE ?", "%#{params[:celeb]}%").pluck(:id)
 
+    # select keyword
+    Keyword.where("name LIKE ?", "#{params[:keyword]}")
+
     # select date
     if (params[:from].nil? || params[:from] == "") && (params[:to].nil? || params[:to] == "")
       schedules = Schedule.all
@@ -59,6 +62,25 @@ class HomeController < ApplicationController
             result: true,
             univs: Univ.all.pluck(:name),
             celebs: Celeb.all.pluck(:name)
+        }
+      }
+    end
+  end
+
+  def add_search
+    search = Search.new
+    search.univ = params[:univ]
+    search.from = params[:from]
+    search.to = params[:to]
+    search.celeb = params[:celeb]
+    search.keyword = params[:keyword]
+
+    search.save
+
+    respond_to do |format|
+      format.json{
+        render json: {
+            result: true
         }
       }
     end

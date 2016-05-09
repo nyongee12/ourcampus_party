@@ -13,6 +13,15 @@ class Festival < ActiveRecord::Base
       # create or select univ
       univ = Univ.find_or_create_by(name: festival_hash["univ"].strip)
 
+      # create keyword
+      unless festival_hash["keyword"].nil? || festival_hash["keyword"] == ""
+        festival_hash["keyword"].split(",").each do |k|
+          keyword = Keyword.find_or_create_by(name: k.strip)
+          UnivKeyword.create(univ_id: univ.id, keyword_id: keyword.id)
+        end
+      end
+
+
       # create festival
       festival = Festival.create(univ_id: univ.id)
 

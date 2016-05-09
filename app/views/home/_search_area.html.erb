@@ -3,7 +3,7 @@
       <i class="fa fa-search" aria-hidden="true"></i>&nbsp;전국 대학 축제
     </div>
     
-    <%= form_tag '/home/index', remote: true, onsubmit:'clearTable();' do %>
+    <%= form_tag '/home/index', remote: true, onsubmit:'submitForm();' do %>
         
         <div class="col-xs-12">
           <%= text_field_tag :univ, '',:class => 'form-control', :placeholder => '학교 검색' %>
