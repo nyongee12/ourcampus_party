@@ -2,22 +2,6 @@
 @import 'datepicker-bootstrap';
 @import 'autocomplete-bootstrap';
 
-//전체 레이아웃 너비 조정
-@media (min-width: 600px) {
-    .container-box {
-    width: 600px;
-    margin:0 auto;
-    background-color: #fff;
-    }
-}
-@media (max-width: 599px) {
-    .container-box {
-    width: 100%;
-    margin:0 auto;
-    background-color: #fff;
-    }
-}
-//전체 레이아웃 너비 조정
 
 //섹션별 마진 설정
 .content-search-box {
@@ -56,8 +40,8 @@ input[readonly].form-control {
   font-size: 22pt;
   font-family: 'bm_jua';
   color: #fff;
-  margin-top: 20px;
-  margin-bottom: 10px;
+  margin-top: 10px;
+  margin-bottom: 0px;
 }
 
 // background 필터
