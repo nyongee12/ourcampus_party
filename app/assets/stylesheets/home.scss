@@ -70,6 +70,12 @@ input[readonly].form-control {
     background-image: -webkit-linear-gradient(top, rgba(234, 76, 137, 0.5), rgba(234, 76, 137, 0.5)), url("test_back.png");    
 }
 
+.grid-margin-left {
+  padding-right: 10px;   
+}
+.grid-margin-right {
+  padding-left: 10px;   
+}
 // 검색 버튼 css
 .search_button {
     width: 100%;
@@ -93,6 +99,9 @@ th {
   color: #808080;
   text-align: center;
 }
+.table > tbody > tr > td {
+    vertical-align: middle;
+}
 // 메인 페이지 테이블
 #result-table tr td {
   color: #4d4d4d;
@@ -104,7 +113,7 @@ th {
 // 디테일 페이지 테이블
 #detail-table tr td {
   color: #4d4d4d;    
-  font-size: 15pt;
+  font-size: 13pt;
 }
 // 디테일 페이지 타이틀
 #detail-title {

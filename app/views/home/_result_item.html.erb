@@ -12,8 +12,16 @@
       <td><%= f.schedules.first.date.strftime("%-m.%d") %> - <%= f.schedules.last.date.strftime("%-m.%d") %></td>
       <td>
         <% celebs = [] %>
-        <% f.festival_schedules.each { |fs| celebs += fs.celebs.pluck(:name) } %>
-        <%= celebs.join(", ") %>
+        
+        <% f.festival_schedules.each do |fs| %>
+        
+          <% celebs += fs.celebs.pluck(:name) %>
+          
+        <% end %>
+        
+        <% @celebs = celebs.uniq %>
+        <% @celebs.map! { |c| c = c.include?("(") ? c.split("(")[0] : c } %>
+        <%= @celebs.join(", ") %>
       </td>
       <td>
         <a href="/details/<%=f.id%>">
