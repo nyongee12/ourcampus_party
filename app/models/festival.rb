@@ -11,14 +11,14 @@ class Festival < ActiveRecord::Base
       festival_hash = row.to_hash
 
       # create or select univ
-      univ = Univ.find_or_create_by(name: festival_hash["univ"])
+      univ = Univ.find_or_create_by(name: festival_hash["univ"].strip)
 
       # create festival
       festival = Festival.create(univ_id: univ.id)
 
       # create festival_schedule
       festival_hash["schedules"].split(",").each do |s|
-        schedule_id = s.to_i-8
+        schedule_id = s.strip.to_i-8
         FestivalSchedule.find_or_create_by(festival_id: festival.id, schedule_id: schedule_id)
       end
 
@@ -27,7 +27,7 @@ class Festival < ActiveRecord::Base
         str = festival_hash["day#{idx+1}"]
         next if str.nil?
         str.split(",").each do |s|
-          celeb = Celeb.find_or_create_by(name: s)
+          celeb = Celeb.find_or_create_by(name: s.strip)
           CelebFestivalSchedule.find_or_create_by(festival_schedule_id: fs.id, celeb_id: celeb.id)
         end
       end

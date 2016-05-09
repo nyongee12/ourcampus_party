@@ -8,10 +8,10 @@ class HomeController < ApplicationController
       schedules = Schedule.all
     elsif params[:from].nil? || params[:from] == ""
       date = get_date(params[:to])
-      schedules = Schedule.where(date: date)
+      schedules = Schedule.all.select { |m| m.date <= date }
     elsif params[:to].nil? || params[:to] == ""
       date = get_date(params[:from])
-      schedules = Schedule.where(date: date)
+      schedules = Schedule.all.select { |m| m.date >= date }
     else
       from_date = get_date(params[:from])
       to_date = get_date(params[:to])
