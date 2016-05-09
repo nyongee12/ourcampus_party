@@ -3,7 +3,7 @@
           $.ui.autocomplete.prototype._renderItem = function( ul, item) {
                             
               var re = new RegExp( "(" + this.term + ")", "gi" );
-              var color_string = item.label.replace(re,"<span style='font-weight:bold;color:Blue;'>" + this.term + "</span>");
+              var color_string = item.label.replace(re,"<span style='font-weight:bold;color: #EA4C89;'>" + this.term + "</span>");
               return $( "<li></li>" )
                   .data( "item.autocomplete", item )
                   .append( "<a>" + color_string + "</a>" )

@@ -70,6 +70,12 @@ input[readonly].form-control {
     background-image: -webkit-linear-gradient(top, rgba(234, 76, 137, 0.5), rgba(234, 76, 137, 0.5)), url("test_back.png");    
 }
 
+.grid-margin-left {
+  padding-right: 10px;   
+}
+.grid-margin-right {
+  padding-left: 10px;   
+}
 // 검색 버튼 css
 .search_button {
     width: 100%;
@@ -79,10 +85,22 @@ input[readonly].form-control {
     font-family: 'nanum_bold';
     font-size: 13pt;
 }
+.search_button:hover {
+    background: #ea4c89;
+    color: #e6e6e6;
+    border-color: #e6e6e6; 
+}
 
+.search_button.active.focus, .search_button.active:focus, .search_button.focus, .search_button:active.focus, .search_button:active:focus, .search_button:focus {
+    outline: 0;
+}
 // 테이블 설정
 th {
   color: #808080;
+  text-align: center;
+}
+.table > tbody > tr > td {
+    vertical-align: middle;
 }
 // 메인 페이지 테이블
 #result-table tr td {
@@ -90,19 +108,23 @@ th {
 }
 #result-table {
   font-size: 11pt;
+  text-align: center;
 }
 // 디테일 페이지 테이블
 #detail-table tr td {
   color: #4d4d4d;    
-  font-size: 15pt;
+  font-size: 13pt;
 }
 // 디테일 페이지 타이틀
 #detail-title {
   color: #ea4c89;
   font-size: 20pt;
   font-family: 'nanum_bold';
+  text-align: center;
 }
-
+#detail-table {
+  text-align: center;
+}
 // close 아이콘 효과
 a > i.fa-times {
   color: #fff;

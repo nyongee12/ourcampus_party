@@ -79,6 +79,72 @@ fieldset[disabled] .btn {
 }
 
 
+//셀렉트
+
+.select {
+  display: inline-block;
+  margin-bottom: 10px;
+}
+[class*="span"] > .select[class*="span"] {
+  margin-left: 0;
+}
+.select[class*="span"] .btn {
+  width: 100%;
+}
+.select.select-block {
+  display: block;
+  float: none;
+  margin-left: 0;
+  width: auto;
+}
+.select.select-block:before,
+.select.select-block:after {
+  content: " ";
+  /* 1 */
+
+  display: table;
+  /* 2 */
+
+}
+.select.select-block:after {
+  clear: both;
+}
+.select.select-block .btn {
+  width: 100%;
+}
+.select.select-block .dropdown-menu {
+  width: 100%;
+}
+.select .btn {
+  width: 220px;
+}
+.select .btn.btn-hg .filter-option {
+  left: 20px;
+  right: 40px;
+  top: 13px;
+}
+.select .btn.btn-hg .caret {
+  right: 20px;
+}
+.select .btn.btn-lg .filter-option {
+  left: 18px;
+  right: 38px;
+}
+.select .btn.btn-sm .filter-option {
+  left: 13px;
+  right: 33px;
+}
+.select .btn.btn-sm .caret {
+  right: 13px;
+}
+.select .btn.btn-xs .filter-option {
+  left: 13px;
+  right: 33px;
+  top: 5px;
+}
+.select .btn.btn-xs .caret {
+  right: 13px;
+}
 .select .btn .filter-option {
   height: 26px;
   left: 13px;
