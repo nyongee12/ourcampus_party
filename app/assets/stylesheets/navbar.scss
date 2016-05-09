@@ -17,3 +17,17 @@
     color: #fff !important;
     border: none;
 }
+
+// 중간에 들어간 검색결과 부분
+.result-nav {
+    border-radius: 0;
+}
+.container-fluid > #result-title {
+  vertical-align: middle;
+}
+#result-title {
+    height: 50px;
+    display:table-cell;
+    font-size: 15pt;
+    font-family: 'nanum_bold';
+}

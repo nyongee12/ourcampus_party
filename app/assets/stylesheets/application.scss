@@ -15,10 +15,13 @@
 @import 'bootstrap';
 @import "font-awesome";
 @import 'party.css';
+@import 'customFlatUi';
 @import 'navbar';
 @import 'home';
 @import 'fonts';
 
 body {
   font-family: "nanum_light";
+  color: #4d4d4d;
+  font-size: 13pt;
 }

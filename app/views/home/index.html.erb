@@ -1,22 +1,37 @@
+<!--전체 콘테이너-->
 <div class="container-box">
-        
-    <div class="content-box">
-      
-      <!--검색 조건 입력 섹션-->
-      <div id="search-area">
-        <%= render 'home/search_area' %>
+    <div class="background-filter">
+    <!--이미지 백그라운드 용-->
+    <div class="background-box">    
+      <div class="content-search-box">
+        <!--검색 조건 입력 섹션-->
+        <div id="search-area">
+          <%= render 'home/search_area' %>
+        </div><!--검색 조건 입력 섹션-->
       </div>
-      
+    </div><!--이미지 백그라운드 용-->
+    </div>
+    <!--검색 결과 타이틀-->
+    <div class="result-area-title">
+      <nav class="navbar navbar-default result-nav">
+        <div class="container-fluid">
+          <div id="result-title">
+            검색 결과
+          </div>
+        </div>
+      </nav>
+    </div>
+    
+    <div class="content-box">
       <!--검색 결과 출력 -->
       <div id="search-result" class="result-table">
         <%= render(partial: "/home/result_area") %>
       </div>
       
-      <!--검색 결과 pagenation -->
-      <div class="paginate">
-        <%= paginate @fs, remote: true %>
-      </div>
-    
     </div>
-        
-</div>
+    
+    <!--검색 결과 pagenation -->
+    <div class="paginate">
+      <%= paginate @fs, remote: true %>
+    </div>
+</div><!--전체 콘테이너-->
