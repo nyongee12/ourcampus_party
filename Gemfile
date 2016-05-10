@@ -7,6 +7,8 @@ gem 'kaminari'
 gem "font-awesome-rails"
 
 gem 'figaro'
+gem 'mysql2'
+gem 'yaml_db'
 
 # gem 'jquery_mobile_rails'
 
