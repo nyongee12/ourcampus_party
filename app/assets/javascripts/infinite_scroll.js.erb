@@ -28,14 +28,12 @@ $(document).ready(function() {
 //      speed: 0,
       img: '/assets/loading-img.gif',
       msgText: '',
-      finishedMsg: '끝났습니다',
+      finishedMsg: '',
       finished: function(opts) {
         if (!opts.state.isBeyondMaxPage) {
-          alert("start");
           opts.loading.msg.fadeOut(opts.loading.speed);
         }
         else {
-          alert("end");
           $('nav.pagination a.avail').unbind('click');
         }
       }
@@ -45,7 +43,6 @@ $(document).ready(function() {
   $(window).unbind('.infscr');
 
   $('nav.pagination a.avail').click(function() {
-      alert("123");
 
       $('#result-table tbody').infinitescroll('retrieve');
       $('nav.pagination').show();
