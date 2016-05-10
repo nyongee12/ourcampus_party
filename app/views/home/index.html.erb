@@ -28,16 +28,16 @@
         <%= render(partial: "/home/result_area") %>
       </div>
 
-    </div>
-
     <!--검색 결과 pagenation -->
-    <div class="paginate" data-no-turbolink>
+    <div class="paginate" data-no-turbolink style="margin-left: -15px; margin-right: -15px;">
       <%= paginate @fs, remote: true %>
-    </div>
-        
-</div><!--전체 콘테이너-->
+    </div> 
 
-<!-- 로딩 -->
-<div id="loading" style="display:none">
-  <img src="/assets/loading-img.gif" />
-</div>
+    </div>
+
+    <!-- 로딩 -->
+    <div id="loading" style="display:none">
+        <img src="/assets/loading-img.gif" />
+    </div>
+   
+</div><!--전체 콘테이너-->

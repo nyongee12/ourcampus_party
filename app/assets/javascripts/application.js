@@ -18,3 +18,4 @@
 //= require custom_autocomplete
 //= require infinite_scroll
 //= require home.coffee
+//= require footer

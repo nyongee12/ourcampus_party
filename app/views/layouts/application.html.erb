@@ -15,30 +15,27 @@
   <meta property="og:url"           content="http://ourcampus.party" />
   <meta property="og:type"          content="website" />
   <meta property="og:title"         content="전국 대학 축제" />
-  <meta property="og:description"   content="전국 대학 축제" />
-  <!--<meta property="og:image"         content="" />-->
-  <meta property="fb:app_id"        content="1019242451500441" />
+  <meta property="og:description"   content="전국 대학교 축제 라인업은 물론 일정까지 한번에 모아보자!" />
+  <meta property="og:image"         content="http://dl.dropbox.com/s/pvixbcj2gqxo4el/logo.png"/>
+  <meta property="fb:app_id"        content="1019242451500441"/>
 </head>
 <body>
 
 <div id="wrapper">
   <%= yield %>
-  <div id="footer" class="container-box">
-    <div class="content-box" style="background: #424242;padding-top: 30px; padding-bottom:20px; color: #e6e6e6; margin:0">
-      <div class="row" style="margin:0">
+  <div id="footer">
+      <div class="row" style="margin: 0">
           <div class="col-xs-12 col-sm-6 footer-image-box">
             <%= image_tag("likelion_logo", width: '64') %>
             <%= image_tag("likelion_text", width: '150') %>
           </div>
-            
           <div class="col-xs-12 col-sm-6 footer-maker-box">
             <p style="font-family: bm_jua;">만든이</p>
             <p style="font-family: bm_jua;">문승현, 민동준, 이윤형, 이정훈, 홍창남</p>
           </div>
-        
       </div>
     </div>
-  </div>
+    
 </div>
     
 <div id="fb-root"></div>
@@ -64,5 +61,6 @@
   }(document, 'script', 'facebook-jssdk'));
 
 </script>
+
 </body>
 </html>
