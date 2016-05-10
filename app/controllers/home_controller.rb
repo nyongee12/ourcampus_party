@@ -2,6 +2,8 @@ class HomeController < ApplicationController
   def index
     univs = Univ.where("name LIKE ?", "%#{params[:univ]}%").pluck(:id)
     celebs = Celeb.where("name LIKE ?", "%#{params[:celeb]}%").pluck(:id)
+    logger.debug("=========CELEB========")
+    logger.debug(params[:celeb])
 
     # select keyword
     Keyword.where("name LIKE ?", "#{params[:keyword]}")
@@ -18,7 +20,6 @@ class HomeController < ApplicationController
     else
       from_date = get_date(params[:from])
       to_date = get_date(params[:to])
-
       schedules = Schedule.all.select { |m| m.date >= from_date && m.date <= to_date }
     end
 

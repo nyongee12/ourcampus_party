@@ -1,3 +1,6 @@
-$('#search-result tbody').append('<%= j render(partial: "/home/result_item", layout: false) %>');
-$('.paginate').html('<%= escape_javascript(paginate(@fs, :remote => true).to_s) %>');
-$.getScript("/assets/infinite_scroll.js.erb");
+$('#search-result tbody').append('<%= j render('/home/result_item') %>');
+$.getScript("/assets/infinite_scroll.js");
+$('.paginate').html('<%= escape_javascript(paginate @fs, remote: true) %>');
+$('#loading').fadeOut('fast');
+
+

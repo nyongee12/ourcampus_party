@@ -17,7 +17,9 @@
     <!--</a>-->
   <!--<%# end %>-->
 <!--</span>-->
-
 <span class="next">
-  <a href="<%=url%>" class="alignCenter <%= 'avail' unless current_page.last? %>" data-remote="<%=remote%>">더 보기</a>
+<% unless current_page.last? %>
+    <a href="<%=url%>" class="alignCenter <%= 'avail' unless current_page.last? %>" data-remote="<%=remote%>">더 보기</a>
+<% end %>
 </span>
+
