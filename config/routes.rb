@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   post 'home/index'
 
   get 'home/get_name'
+  get 'home/add_search'
   
   get 'details/:id' => 'home#detail'
 
