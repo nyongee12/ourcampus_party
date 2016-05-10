@@ -5,6 +5,8 @@ class Festival < ActiveRecord::Base
 
   accepts_nested_attributes_for :festival_schedules
 
+  # default_scope { order('festival.schedules.id ASC') }
+
   def self.import(file)
     CSV.foreach(file.path, headers: true) do |row|
 
