@@ -32,19 +32,24 @@ class HomeController < ApplicationController
 
     tmp_festivals.uniq!
 
-    # select celeb
-    festivals = []
-    tmp_festivals.each do |f|
-      status = false
-      f.festival_schedules.each do |fs|
-        fsc = fs.celebs.pluck(:id).count
-        arr = fs.celebs.pluck(:id) - celebs
-        if arr.count != fsc
-          status = true; break;
+    if params[:celeb].nil? || params[:celeb] == ""
+      festivals = tmp_festivals
+    else
+      # select celeb
+      festivals = []
+      tmp_festivals.each do |f|
+        status = false
+        f.festival_schedules.each do |fs|
+          fsc = fs.celebs.pluck(:id).count
+          arr = fs.celebs.pluck(:id) - celebs
+          if arr.count != fsc
+            status = true; break;
+          end
         end
+        festivals << f if status == true
       end
-      festivals << f if status == true
     end
+
 
     @fs = Kaminari.paginate_array(festivals).page(params[:page]).per(7)
 
