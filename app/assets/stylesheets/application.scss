@@ -42,36 +42,55 @@ body {
     }
     .footer-maker-box {
         padding-left: 20px;
+        margin-top: 0px;
+    }
+    #footer{
+      width: 600px;
+      margin: 0 auto;
+    }
+    #wrapper {
+      width: 600px; 
     }
 }
 @media (max-width: 599px) {
     .container-box {
-    width: 100%;
-    margin:0 auto;
-    background-color: #fff;
+      width: 100%;
+      margin:0 auto;
+      background-color: #fff;
     }
     .footer-image-box {
         padding-left: 40px;
     }
     .footer-maker-box {
-        padding-left: 40px;
-        margin-top: 10px;
+        padding-left: 50px;
+        margin-top: 15px;
+    }
+    #footer{
+      width: 100%;
+    }
+    #wrapper {
+      width: 100%;  
     }
     
 }
 //전체 레이아웃 너비 조정
-// #footer {
-//   position: absolute;
-//   right: 0;
-//   bottom: 0;
-//   left: 0;
-//   padding: 1rem;
-//   text-align: center;
-// }
-// #wrapper {
-//   min-height: 100%;
-//   position:relative;
-//   width: 600px;
-//   margin: 0 auto;
-//   background:#fff;
-// }
+#footer {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+  background: #424242;
+  padding-top: 30px;
+  padding-bottom:20px;
+  color: #e6e6e6;
+  
+}
+.container-box {
+ min-height: 100%; 
+}
+#wrapper {
+	min-height: 100%;
+	position: relative;
+  margin: 0 auto;
+  background:#fff;
+}

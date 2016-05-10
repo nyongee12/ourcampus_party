@@ -19,3 +19,4 @@
 //= require jquery.infinitescroll
 //= require infinite_scroll
 //= require home.coffee
+//= require footer

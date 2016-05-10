@@ -28,11 +28,11 @@
         <%= render(partial: "/home/result_area") %>
       </div>
 
-    </div>
-
     <!--검색 결과 pagenation -->
-    <div class="paginate" data-no-turbolink>
+    <div class="paginate" data-no-turbolink style="margin-left: -15px; margin-right: -15px;">
       <%= paginate @fs, remote: true %>
+    </div> 
+
     </div>
-        
+   
 </div><!--전체 콘테이너-->
