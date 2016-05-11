@@ -14,36 +14,36 @@
 ActiveRecord::Schema.define(version: 20160509124504) do
 
   create_table "celeb_festival_schedules", force: :cascade do |t|
-    t.integer  "festival_schedule_id", limit: 4
-    t.integer  "celeb_id",             limit: 4
-    t.datetime "created_at",                     null: false
-    t.datetime "updated_at",                     null: false
-  end
-
-  create_table "celebs", force: :cascade do |t|
-    t.string   "name",       limit: 255
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
-  end
-
-  create_table "festival_schedules", force: :cascade do |t|
-    t.integer  "festival_id", limit: 4
-    t.integer  "schedule_id", limit: 4
-    t.datetime "created_at",            null: false
-    t.datetime "updated_at",            null: false
-  end
-
-  create_table "festivals", force: :cascade do |t|
-    t.integer  "univ_id",    limit: 4
+    t.integer  "festival_schedule_id"
+    t.integer  "celeb_id"
     t.datetime "created_at",           null: false
     t.datetime "updated_at",           null: false
   end
 
+  create_table "celebs", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "festival_schedules", force: :cascade do |t|
+    t.integer  "festival_id"
+    t.integer  "schedule_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "festivals", force: :cascade do |t|
+    t.integer  "univ_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "keywords", force: :cascade do |t|
-    t.string   "key_type",   limit: 255
-    t.string   "name",       limit: 255
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.string   "key_type"
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "schedules", force: :cascade do |t|
@@ -53,27 +53,27 @@ ActiveRecord::Schema.define(version: 20160509124504) do
   end
 
   create_table "searches", force: :cascade do |t|
-    t.string   "univ",       limit: 255
-    t.string   "from",       limit: 255
-    t.string   "to",         limit: 255
-    t.string   "celeb",      limit: 255
-    t.string   "keyword",    limit: 255
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.string   "univ"
+    t.string   "from"
+    t.string   "to"
+    t.string   "celeb"
+    t.string   "keyword"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "univ_keywords", force: :cascade do |t|
-    t.integer  "univ_id",    limit: 4
-    t.integer  "keyword_id", limit: 4
-    t.datetime "created_at",           null: false
-    t.datetime "updated_at",           null: false
+    t.integer  "univ_id"
+    t.integer  "keyword_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "univs", force: :cascade do |t|
-    t.string   "name",       limit: 255
-    t.string   "path_link",  limit: 255
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.string   "name"
+    t.string   "path_link"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end

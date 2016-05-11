@@ -1,12 +1,15 @@
 /*네비게이션바 관련 css */
 #title {
     height: 50px;
-    display:table-cell;
+    display: inline-block;
+    line-height: 50px;
     font-size: 22pt;
     font-family: 'bm_jua';
+    text-align: center;
 }
 .container-fluid {
     text-align: -webkit-center;
+    text-align: center;
 }
 .container-fluid > #title {
   vertical-align: middle;
@@ -26,7 +29,8 @@
 }
 #result-title {
     height: 50px;
-    display:table-cell;
     font-size: 15pt;
     font-family: 'nanum_bold';
+    line-height: 50px;
+    text-align: center;
 }
