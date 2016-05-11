@@ -31,8 +31,8 @@ class Festival < ActiveRecord::Base
           fs.celeb_festival_schedules.each { |cfs| cfs.destroy }
           fs.destroy
         end
+        festival.destroy
       end
-      festival.destroy
 
 
       # create festival
