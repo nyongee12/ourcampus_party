@@ -1,7 +1,7 @@
 class Univ < ActiveRecord::Base
   has_many :festivals
   has_many :univ_keywords
-  has_many :univs, through: :univ_keywords
+  has_many :keywords, through: :univ_keywords
 
   require 'csv'
   def self.import(file)

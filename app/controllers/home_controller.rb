@@ -91,6 +91,14 @@ class HomeController < ApplicationController
     end
   end
 
+  def export
+    @data = Festival.all
+    respond_to do |format|
+      format.html
+      format.csv { send_data @data.export }
+    end
+  end
+
   private
   def get_date date
     date_arr = date.split('/')

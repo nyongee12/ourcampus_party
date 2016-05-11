@@ -9,6 +9,8 @@ Rails.application.routes.draw do
   
   get 'details/:id' => 'home#detail'
 
+  get 'export', to: 'home#export', as: :export
+
 
   
   # The priority is based upon order of creation: first created -> highest priority.

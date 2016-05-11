@@ -1,4 +1,5 @@
 class Festival < ActiveRecord::Base
+  require 'csv'
   belongs_to :univ
   has_many :festival_schedules
   has_many :schedules, through: :festival_schedules
@@ -19,13 +20,25 @@ class Festival < ActiveRecord::Base
       unless festival_hash["keyword"].nil? || festival_hash["keyword"] == ""
         festival_hash["keyword"].split(",").each do |k|
           keyword = Keyword.find_or_create_by(name: k.strip)
-          UnivKeyword.create(univ_id: univ.id, keyword_id: keyword.id)
+          UnivKeyword.find_or_create_by(univ_id: univ.id, keyword_id: keyword.id)
         end
       end
 
+      # destroy about festival
+      festival = Festival.where(id: festival_hash["id"]).take
+      unless festival.nil?
+        festival.festival_schedules.each do |fs|
+          fs.celeb_festival_schedules.each { |cfs| cfs.destroy }
+          fs.destroy
+        end
+      end
+      festival.destroy
+
 
       # create festival
-      festival = Festival.create(univ_id: univ.id)
+      festival = Festival.find_or_create_by(id: festival_hash["id"])
+      festival.univ = univ
+      festival.save
 
       # create festival_schedule
       festival_hash["schedules"].split(",").each do |s|
@@ -43,6 +56,42 @@ class Festival < ActiveRecord::Base
         end
       end
 
+    end
+  end
+
+  def self.export
+    CSV.generate() do |csv|
+      csv.add_row %w(id univ keyword schedules day1 day2 day3 day4 day5)
+
+      all.each do |f|
+        values = []
+
+        # create festival_id
+        values << f.id
+        # create univ
+        values << f.univ.name
+
+        # create keyword
+        values << f.univ.keywords.pluck(:name).join(",")
+
+        # create schedules
+        days = ""
+        f.schedules.each { |s| days += "#{s.date.strftime("%d")}," }
+        values << days
+
+        # create celebs
+        1.upto(5) do |idx|
+          s = f.schedules[idx-1]
+          if s.nil?
+            values << ""
+            next
+          end
+          fs = s.festival_schedules.where(festival_id: f.id).take
+          values << fs.celebs.pluck(:name).join(",")
+        end
+
+        csv.add_row values
+      end
     end
   end
 end
