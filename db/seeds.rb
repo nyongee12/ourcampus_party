@@ -9,9 +9,9 @@
 require 'csv'
 
 # make schedule
-9.upto(31) do |i|
-  Schedule.create(date: DateTime.new(2016, 5, i))
-end
+# 9.upto(31) do |i|
+#   Schedule.create(date: DateTime.new(2016, 5, i))
+# end
 
 # # make univ
 # file = open('public/Univ.csv')

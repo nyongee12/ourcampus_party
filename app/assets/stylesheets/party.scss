@@ -41,13 +41,13 @@
 }
 
 /* resize loading image */
-#infscr-loading {
+#loading {
     position: fixed !important;
     top: 0 !important; left: 0 !important;
     width: 100% !important; height: 100% !important;
     background-color: rgba(238, 238, 238, 0.43) !important;
 }
-#infscr-loading img {
+#loading img {
     position: absolute !important;
     width:100px !important;
     top: calc(50% - 50px) !important;

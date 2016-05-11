@@ -1,10 +1,13 @@
 class HomeController < ApplicationController
   def index
-    univs = Univ.where("name LIKE ?", "%#{params[:univ]}%").pluck(:id)
-    celebs = Celeb.where("name LIKE ?", "%#{params[:celeb]}%").pluck(:id)
+    univs = Univ.where("name LIKE ?", "%#{params[:univ]}%").ids
+    celebs = Celeb.where("name LIKE ?", "%#{params[:celeb]}%").ids
 
     # select keyword
-    Keyword.where("name LIKE ?", "#{params[:keyword]}")
+    keyword = Keyword.where("name LIKE ?", "#{params[:keyword]}").take
+    unless keyword.nil?
+      univs = univs & keyword.univs.ids
+    end
 
     # select date
     if (params[:from].nil? || params[:from] == "") && (params[:to].nil? || params[:to] == "")
@@ -18,11 +21,8 @@ class HomeController < ApplicationController
     else
       from_date = get_date(params[:from])
       to_date = get_date(params[:to])
-
       schedules = Schedule.all.select { |m| m.date >= from_date && m.date <= to_date }
     end
-
-
 
     # select univ
     tmp_festivals = []
@@ -40,8 +40,8 @@ class HomeController < ApplicationController
       tmp_festivals.each do |f|
         status = false
         f.festival_schedules.each do |fs|
-          fsc = fs.celebs.pluck(:id).count
-          arr = fs.celebs.pluck(:id) - celebs
+          fsc = fs.celebs.ids.count
+          arr = fs.celebs.ids - celebs
           if arr.count != fsc
             status = true; break;
           end
@@ -88,6 +88,14 @@ class HomeController < ApplicationController
             result: true
         }
       }
+    end
+  end
+
+  def export
+    @data = Festival.all
+    respond_to do |format|
+      format.html
+      format.csv { send_data @data.export }
     end
   end
 
