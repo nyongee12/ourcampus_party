@@ -13,7 +13,7 @@ function submitForm() {
           $('#search-result tr.result-item').remove();
       },
       error : function(xhr, status, error) {
-        alert("에러발생");
+        //alert("에러발생");
       }
     });
 }
