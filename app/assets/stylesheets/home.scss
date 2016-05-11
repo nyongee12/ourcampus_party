@@ -23,6 +23,9 @@
  margin-bottom: 10px;   
  font-size: 13pt;
  color: #e6e6e6;
+ -webkit-font-smoothing: subpixel-antialiased;
+  -webkit-transition: border .25s linear, color .25s linear, background-color .25s linear;
+  transition: border .25s linear, color .25s linear, background-color .25s linear;
 }
 
 //캘린더 마크, read only default 셋팅 
@@ -157,11 +160,19 @@ input[type="text"]:-moz-placeholder { /* Firefox 18- */
 
 select {
     background: #fff;
-    border: 2px solid #4d4d4d;
+    border-radius: 5px;
+    border: 2px solid #EA4C89;
     -webkit-appearance: none;
     -moz-appearance: none;
-    appearance: none;
+    appearance: none;    
 }
 select > option {
-  color: #4d4d4d; 
+  color: #4d4d4d;
+  -webkit-font-smoothing: subpixel-antialiased;
+  -webkit-transition: border .25s linear, color .25s linear, background-color .25s linear;
+  transition: border .25s linear, color .25s linear, background-color .25s linear;
+}
+select > option:hover {
+  color: #4d4d4d;
+  background: #e6e6e6;
 }
