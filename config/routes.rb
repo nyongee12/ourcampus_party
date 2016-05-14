@@ -1,6 +1,11 @@
-Rails.application.routes.draw do  
+Rails.application.routes.draw do
   root 'visitor#intro'
   
+  get 'admin/index'
+  get 'admin/show'
+  get 'admin/new'
+  get 'admin/edit'
+
   get 'visitor/intro'
 
   get 'home/index'

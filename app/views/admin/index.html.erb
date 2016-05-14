@@ -1,0 +1,26 @@
+<div id="search-result" class="result-table">
+  <table class="table" id="result-table">
+    <tr>
+      <th style="width: 5%;">아이디</th>
+      <th style="width: 15%">대학</th>
+      <th style="width: 15%">키워드</th>
+      <th style="width: 10%">일정</th>
+      <th style="width: 10%">1일차</th>
+      <th style="width: 10%">2일차</th>
+      <th style="width: 10%">3일차</th>
+      <th style="width: 10%">4일차</th>
+      <th style="width: 10%">5일차</th>
+      <th></th>
+      <th></th>
+    </tr>
+    <% @rows.each do |r| %>
+    <tr>
+      <% r.each do |c| %>
+          <td><%=c%></td>
+      <% end %>
+      <td><button class="btn btn-default">수정</button></td>
+      <td><button class="btn btn-default">삭제</button></td>
+    </tr>
+    <% end %>
+  </table>
+</div>
