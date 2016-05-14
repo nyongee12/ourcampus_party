@@ -1,4 +1,5 @@
 class Festival < ActiveRecord::Base
+
   require 'csv'
   belongs_to :univ
   has_many :festival_schedules
@@ -64,33 +65,7 @@ class Festival < ActiveRecord::Base
       csv.add_row %w(id univ keyword schedules day1 day2 day3 day4 day5)
 
       all.each do |f|
-        values = []
-
-        # create festival_id
-        values << f.id
-        # create univ
-        values << f.univ.name
-
-        # create keyword
-        values << f.univ.keywords.pluck(:name).join(",")
-
-        # create schedules
-        days = ""
-        f.schedules.each { |s| days += "#{s.date.strftime("%d")}," }
-        values << days
-
-        # create celebs
-        1.upto(5) do |idx|
-          s = f.schedules[idx-1]
-          if s.nil?
-            values << ""
-            next
-          end
-          fs = s.festival_schedules.where(festival_id: f.id).take
-          values << fs.celebs.pluck(:name).join(",")
-        end
-
-        csv.add_row values
+        csv.add_row ApplicationController.helpers.make_row(f)
       end
     end
   end

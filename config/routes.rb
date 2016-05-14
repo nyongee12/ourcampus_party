@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
+  get 'admin/index'
+
+  get 'admin/show'
+
+  get 'admin/new'
+
+  get 'admin/edit'
+
   root 'home#index'
   
   get 'home/index'
