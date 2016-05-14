@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160509124504) do
+ActiveRecord::Schema.define(version: 20160514053526) do
 
   create_table "celeb_festival_schedules", force: :cascade do |t|
     t.integer  "festival_schedule_id"
@@ -22,8 +22,9 @@ ActiveRecord::Schema.define(version: 20160509124504) do
 
   create_table "celebs", force: :cascade do |t|
     t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+    t.integer  "count",      default: 0
   end
 
   create_table "festival_schedules", force: :cascade do |t|
@@ -72,8 +73,9 @@ ActiveRecord::Schema.define(version: 20160509124504) do
   create_table "univs", force: :cascade do |t|
     t.string   "name"
     t.string   "path_link"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+    t.integer  "count",      default: 0
   end
 
 end

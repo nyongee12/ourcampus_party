@@ -1,34 +1,37 @@
-<style type="text/css">
-    .outer {
-      display: table;
-      width: 100%;
-      height: 100%;
-    }
-    .inner {
-      display: table-cell;
-      vertical-align: middle;
-      text-align: center;
-    }
-    .centered {
-      position: relative;
-      display: inline-block;
-      padding: 1em;
-      background: #EA4C89;
-      color: white;
-    }
-</style>
-  <div class="outer" style="background-color: #fff">
-    <div class="inner">
-      <div class="centered">
-        <div class="container-box" style="background-color: #EA4C89">
-          <%= form_tag '/home/index' do %>
-              <div id="main-title" class="col-xs-12" style="margin-top: 0px">
-                <i class="fa fa-search" aria-hidden="true"></i>&nbsp;전국 대학 축제
-              </div>
-              <%= text_field_tag :total_search, "", :class => 'form-control', :placeholder => '대학교, 라인업 검색하기' %>
-            <%= submit_tag "검색", :class => 'btn btn-default', :style => 'display: none' %>
+<div class="outer" style="background-color: #fff">
+  <div class="inner">
+    <div class="centered">
+      <div class="container-box" style="background-color: #EA4C89">
+        <%= form_tag '/home/index' do %>
+            <div id="main-title" class="col-xs-12" style="margin-top: 0px">
+              <i class="fa fa-search" aria-hidden="true"></i>&nbsp;전국 대학 축제
+            </div>
+            <%= text_field_tag :total_search, "", :class => 'form-control', :placeholder => '대학교, 라인업 검색하기' %>
+          <%= submit_tag "검색", :class => 'btn btn-default', :style => 'display: none' %>
+        <% end %>
+        
+        <table>
+          <% @univs.each_with_index do |u, idx| %>
+              <tr>
+                <td><%= idx+1 %></td>
+                <td><%= u.name%></td>
+                <td><%= u.count%></td>
+              </tr>
           <% end %>
-        </div>
+        </table>
+        
+        <table>
+          <% @celebs.each_with_index do |u, idx| %>
+              <tr>
+                <td><%= idx+1 %></td>
+                <td><%= u.name%></td>
+                <td><%= u.count%></td>
+              </tr>
+          <% end %>
+        </table>
+
       </div>
     </div>
   </div>
+</div>
+
