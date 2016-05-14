@@ -2,7 +2,6 @@
 @import 'datepicker-bootstrap';
 @import 'autocomplete-bootstrap';
 
-
 //섹션별 마진 설정
 .content-search-box {
     margin-left:30px;
@@ -16,9 +15,8 @@
 .result-table {
     margin-top: 30px;   
 }
-//섹션별 마진 설정
 
-//form 마진 설정
+//form 스타일 설정
 #univ, #celeb, #from, #to, #keyword {
  margin-bottom: 10px;   
  font-size: 13pt;
@@ -33,7 +31,6 @@ input[readonly].form-control {
     cursor: pointer;
     background: transparent;
 }
-
 .input-group {
   margin-bottom: 10px;
 }

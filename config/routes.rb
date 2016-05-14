@@ -1,6 +1,8 @@
-Rails.application.routes.draw do
-  root 'home#index'
+Rails.application.routes.draw do  
+  root 'visitor#intro'
   
+  get 'visitor/intro'
+
   get 'home/index'
   post 'home/index'
 
