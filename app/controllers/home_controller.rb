@@ -82,6 +82,22 @@ class HomeController < ApplicationController
 
     search.save
 
+    # add univ count
+    unless params[:univ] == ""
+      Univ.all.where("name LIKE ?", "%#{params[:univ]}%").each do |u|
+        u.count += 1
+        u.save
+      end
+    end
+
+    # add celeb count
+    unless params[:celeb] == ""
+      Celeb.all.where("name LIKE ?", "%#{params[:celeb]}%").each do |c|
+        c.count += 1
+        c.save
+      end
+    end
+
     respond_to do |format|
       format.json{
         render json: {
