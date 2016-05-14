@@ -24,7 +24,7 @@
     font-size: 12pt;
 }
 .paginate nav.pagination a:hover, a:focus {
-    color: #fff;
+    color: #EA4C89;
     text-decoration: none;
 }
 
@@ -38,6 +38,10 @@
     -webkit-transform: translate(-50%, -50%);
     -moz-transform: translate(-50%, -50%);
     -o-transform: translate(-50%, -50%);
+    -webkit-font-smoothing: subpixel-antialiased;
+    -webkit-transition: border .25s linear, color .25s linear, background-color .25s linear;
+    transition: border .25s linear, color .25s linear, background-color .25s linear;
+    cursor: pointer;
 }
 
 /* resize loading image */
@@ -53,69 +57,3 @@
     top: calc(50% - 50px) !important;
     left: calc(50% - 50px) !important;
 }
-/*
-.paginate a.paginate_arr {
-    width: 26px;
-    height: 25px;
-    font-size: 14px;
-    line-height: 26px;
-    color: #737A85;
-    border: 1px solid #aaa;
-    margin:0;
-}
-.paginate a.paginate_arr:hover {
-    color: #aaa;
-}
-.paginate a {
-    vertical-align: top;
-    margin-right: 1px;
-    display: inline-block;
-    border: 1px solid rgb(219, 219, 219);
-}
-
-.paginate a {
-    border: #DBDBDB 1px solid;
-    width: 26px;
-    height: 25px;
-    line-height: 25px;
-    color: #6F6F6F;
-    font-weight: normal;
-    text-align: center;
-    padding: 0 !important;
-}
-.paginate .current_arr {
-    display: inline-block;
-    width: 26px !important;
-    height: 25px !important;
-    padding: 0 !important;
-    border: 1px solid rgb(219, 219, 219);
-    color: #E73C00;
-}
-
-.paginate .first > a {
-    border-top-left-radius: 2.5px;
-    border-bottom-left-radius: 2.5px;
-}
-.paginate .prev > a {
-    margin-left:-5px;
-    border-left: none;
-    border-top-right-radius: 2.5px;
-    border-bottom-right-radius: 2.5px;
-}
-.paginate .next > a {
-    margin-right:-5px;
-    border-right: none;
-    border-top-left-radius: 2.5px;
-    border-bottom-left-radius: 2.5px;
-}
-.paginate .last > a {
-    border-top-right-radius: 2.5px;
-    border-bottom-right-radius: 2.5px;
-}
-.paginate .page:first-child > a {
-    margin-left: 10px;
-}
-.paginate .page:last-child > a {
-    margin-right: 10px;
-}
-*/
