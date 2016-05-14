@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root 'visitor#intro'
+  root 'home#index'
   
   get 'admin/index'
   get 'admin/show'
