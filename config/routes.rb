@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   get 'admin/new'
   get 'admin/edit'
 
-  get 'visitor/intro'
+  post 'visitor/intro'
 
   get 'home/index'
   post 'home/index'
@@ -17,7 +17,6 @@ Rails.application.routes.draw do
   get 'details/:id' => 'home#detail'
 
   get 'export', to: 'home#export', as: :export
-
 
   
   # The priority is based upon order of creation: first created -> highest priority.
