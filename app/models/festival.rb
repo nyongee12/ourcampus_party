@@ -43,8 +43,9 @@ class Festival < ActiveRecord::Base
 
       # create festival_schedule
       festival_hash["schedules"].split(",").each do |s|
-        schedule_id = s.strip.to_i-8
-        FestivalSchedule.find_or_create_by(festival_id: festival.id, schedule_id: schedule_id)
+        schedule = Schedule.find_or_create_by(date: DateTime.new(2016,05,s.to_i))
+        # schedule_id = s.strip.to_i-8
+        FestivalSchedule.find_or_create_by(festival_id: festival.id, schedule_id: schedule.id)
       end
 
       # create celeb & celeb_festival_schedule
