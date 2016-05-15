@@ -50,3 +50,12 @@ input:focus { color: #EA4C89 }
 .badge {
   background:  #EA4C89;
 }
+
+@-moz-document url-prefix() {
+    #univ-ranking {
+      margin-top: 26px;
+    }
+    #celeb-ranking {
+      margin-top: 26px;
+    }
+}

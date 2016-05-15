@@ -1,8 +1,15 @@
 class HomeController < ApplicationController
   def index
-    univs = Univ.where("name LIKE ?", "%#{params[:univ]}%").ids
-    celebs = Celeb.where("name LIKE ?", "%#{params[:celeb]}%").ids
-
+    
+    #랜딩페이지 검색 있는경우 셋팅
+    unless params[:total_search].nil?
+      univs = Univ.where("name LIKE ?", "%#{params[:total_search]}%").ids
+      celebs = Celeb.where("name LIKE ?", "%#{params[:total_search]}%").ids
+    else
+      univs = Univ.where("name LIKE ?", "%#{params[:univ]}%").ids
+      celebs = Celeb.where("name LIKE ?", "%#{params[:celeb]}%").ids
+    end 
+        
     # select keyword
     keyword = Keyword.where("name LIKE ?", "#{params[:keyword]}").take
     unless keyword.nil?
@@ -32,7 +39,8 @@ class HomeController < ApplicationController
 
     tmp_festivals.uniq!
 
-    if params[:celeb].nil? || params[:celeb] == ""
+    
+    if (params[:celeb].nil? || params[:celeb] == "") && celebs.blank?
       festivals = tmp_festivals
     else
       # select celeb

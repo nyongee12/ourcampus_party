@@ -1,12 +1,12 @@
 Rails.application.routes.draw do
-  root 'home#index'
+  root 'visitor#intro'
   
   get 'admin/index'
   get 'admin/show'
   get 'admin/new'
   get 'admin/edit'
 
-  post 'visitor/intro'
+  get 'visitor/intro'
 
   get 'home/index'
   post 'home/index'
