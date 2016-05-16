@@ -17,6 +17,5 @@
 //= require datepick
 //= require custom_autocomplete
 //= require infinite_scroll
-//= require footer
 //= require vticker
-//= require visitor
+//= require footer

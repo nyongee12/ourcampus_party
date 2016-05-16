@@ -46,14 +46,14 @@
               <ul style="width: 100%">
               <% @celebs.each_with_index do |u, idx| %>
                     <li>
-                      <div class="row cursor" style="padding: 0" id="search-ranking<%= idx+3 %>">
+                      <div class="row cursor" style="padding: 0" id="search-ranking<%= idx+4 %>">
                         <div class="col-xs-2" style="margin-top: 1px;">
                           <span class="badge">
                             <%= idx+1 %>
                           </span>
                         </div>
                         <div class="col-xs-10" style="margin-top: 2px;">
-                          <span id="search-value<%= idx+3 %>" style="font-size: 14px;"><%= u.name %></span>
+                          <span id="search-value<%= idx+4 %>" style="font-size: 14px;"><%= u.name %></span>
                         </div>
                       </div>        
                     </li>
@@ -67,3 +67,19 @@
     </div>
   </div>
 </div>
+<script>
+$(function() {
+  $('#univ-ranking').vTicker();
+  $('#celeb-ranking').vTicker();
+  
+  <% for i in 1..6 do %>
+    $("#search-ranking<%= i %>").click(function(){
+      var value = $("#search-value<%= i%>").text();  
+      $("#total_search").val(value);
+      $("#total_search_form").submit();
+      
+    });
+    
+  <% end %>
+});
+</script>
