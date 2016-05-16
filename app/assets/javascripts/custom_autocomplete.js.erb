@@ -25,18 +25,30 @@
                     focus: function(event, data) {
                       return false;
                     }
+                  }).keyup(function (e) {
+                      if(e.which === 13) {
+                          $(".ui-menu-item").hide();
+                      }            
                   });
                   $("#univ").autocomplete({
                     source: data_list_univ,
                     focus: function(event, data) {
                       return false;
                     }
+                  }).keyup(function (e) {
+                      if(e.which === 13) {
+                          $(".ui-menu-item").hide();
+                      }            
                   });
                   $("#celeb").autocomplete({
                     source: data_list_celeb,
                     focus: function(event, data) {
                       return false;
                     }
+                  }).keyup(function (e) {
+                      if(e.which === 13) {
+                          $(".ui-menu-item").hide();
+                      }            
                   });
                 }
               },
