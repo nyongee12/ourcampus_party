@@ -18,8 +18,8 @@
       <% r.each do |c| %>
           <td><%=c%></td>
       <% end %>
-      <td><button class="btn btn-default">수정</button></td>
-      <td><button class="btn btn-default">삭제</button></td>
+      <td><a class="btn btn-default" href="/edit/<%=r[0]%>">수정</a></td>
+      <td><a class="btn btn-default" href="#">삭제</a></td>
     </tr>
     <% end %>
   </table>

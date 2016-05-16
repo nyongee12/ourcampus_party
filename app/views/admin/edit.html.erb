@@ -1,2 +1,26 @@
-<h1>Admin#edit</h1>
-<p>Find me in app/views/admin/edit.html.erb</p>
+<%= form_tag "/update/#{@id}", onsubmit:'', style:'background:#DC719B' do %>
+    <%= label_tag :univ, '학교명' %>
+    <%= text_field_tag :univ, @univ, :class => 'form-control', :placeholder => '학교명' %>
+
+    <%= label_tag :from, '시작' %>
+    <%= text_field_tag :from, @from, :class => 'form-control show_default', :placeholder => '일정(from)', :readonly => true %>
+    <%= label_tag :to, '종료' %>
+    <%= text_field_tag :to, @to, :class => 'form-control show_default', :placeholder => '일정(from)', :readonly => true %>
+
+    <%= label_tag :day1, '1일차' %>
+    <%= text_field_tag :day1, @days[0],:class => 'form-control show_default', :placeholder => '1일차' %>
+    <%= label_tag :day2, '2일차' %>
+    <%= text_field_tag :day2, @days[1],:class => 'form-control show_default', :placeholder => '2일차' %>
+    <%= label_tag :day3, '3일차' %>
+    <%= text_field_tag :day3, @days[2],:class => 'form-control show_default', :placeholder => '3일차' %>
+    <%= label_tag :day4, '4일차' %>
+    <%= text_field_tag :day4, @days[3],:class => 'form-control show_default', :placeholder => '4일차' %>
+    <%= label_tag :day5, '5일차' %>
+    <%= text_field_tag :day5, @days[4],:class => 'form-control show_default', :placeholder => '5일차' %>
+
+
+    <div data-no-turbolink>
+      <%= submit_tag "수정", :class => 'btn btn-default search_button' %>
+    </div>
+
+<% end %>
