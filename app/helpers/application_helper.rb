@@ -8,6 +8,12 @@ module ApplicationHelper
   #         format = 
   #     end
   # end
+
+  def isNil(str)
+    result = (str.nil? || str == "") ? true : false
+    return result
+  end
+
   def make_row f
     values = []
 

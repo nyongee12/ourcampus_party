@@ -7,15 +7,55 @@
       width: 100%;
       height: 100%;
     }
-    .inner {
-      display: table-cell;
-      vertical-align: middle;
-      text-align: center;
+.inner {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+}
+.centered {
+  position: relative;
+  display: inline-block;
+  padding: 1em;
+  background: #fff;
+  color: #EA4C89;
+}
+
+#visitor-title {
+  text-align: -webkit-center;
+  text-align: center;
+  font-size: 22pt;
+  font-family: 'bm_jua';
+  color: #EA4C89;
+}
+
+input:focus { color: #EA4C89 }
+
+.univ-rank-title {
+ margin-top: 26px;
+ font-family: "bm_jua";
+ color: #4d4d4d;
+}
+#univ-ranking {
+  color: #4d4d4d;
+}
+
+.celeb-rank-title {
+ margin-top: 26px; 
+ font-family: "bm_jua";
+ color: #4d4d4d;
+}
+#celeb-ranking {
+  color: #4d4d4d;
+}
+.badge {
+  background:  #EA4C89;
+}
+
+@-moz-document url-prefix() {
+    #univ-ranking {
+      margin-top: 26px;
     }
-    .centered {
-      position: relative;
-      display: inline-block;
-      padding: 1em;
-      background: #EA4C89;
-      color: white;
+    #celeb-ranking {
+      margin-top: 26px;
     }
+}

@@ -20,6 +20,12 @@
                 if( data.result == true ) {
                   var data_list_univ = data.univs;
                   var data_list_celeb = data.celebs;
+                  $("#total_search").autocomplete({
+                    source: data_list_univ.concat(data_list_celeb),
+                    focus: function(event, data) {
+                      return false;
+                    }
+                  });
                   $("#univ").autocomplete({
                     source: data_list_univ,
                     focus: function(event, data) {

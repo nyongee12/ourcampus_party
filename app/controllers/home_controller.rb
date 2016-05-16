@@ -1,7 +1,14 @@
 class HomeController < ApplicationController
+  include ApplicationHelper
+
   def index
-    univs = Univ.where("name LIKE ?", "%#{params[:univ]}%").ids
-    celebs = Celeb.where("name LIKE ?", "%#{params[:celeb]}%").ids
+    unless isNil(params[:total_search])
+      univs = Univ.all.ids
+      celebs = Celeb.where("name LIKE ?", "%#{params[:total_search]}%").ids
+    else
+      univs = Univ.where("name LIKE ?", "%#{params[:univ]}%").ids
+      celebs = Celeb.where("name LIKE ?", "%#{params[:celeb]}%").ids
+    end
 
     # select keyword
     keyword = Keyword.where("name LIKE ?", "#{params[:keyword]}").take
@@ -10,12 +17,12 @@ class HomeController < ApplicationController
     end
 
     # select date
-    if (params[:from].nil? || params[:from] == "") && (params[:to].nil? || params[:to] == "")
+    if isNil(params[:from]) && isNil(params[:to])
       schedules = Schedule.all
-    elsif params[:from].nil? || params[:from] == ""
+    elsif isNil(params[:from])
       date = get_date(params[:to])
       schedules = Schedule.all.select { |m| m.date <= date }
-    elsif params[:to].nil? || params[:to] == ""
+    elsif isNil(params[:to])
       date = get_date(params[:from])
       schedules = Schedule.all.select { |m| m.date >= date }
     else
@@ -30,9 +37,9 @@ class HomeController < ApplicationController
       tmp_festivals += s.festivals.where(univ_id: univs)
     end
 
-    tmp_festivals.uniq!
+    tmp_festivals = tmp_festivals.uniq
 
-    if params[:celeb].nil? || params[:celeb] == ""
+    if isNil(params[:total_search]) && isNil(params[:celeb])
       festivals = tmp_festivals
     else
       # select celeb
@@ -49,6 +56,20 @@ class HomeController < ApplicationController
         festivals << f if status == true
       end
     end
+
+    logger.debug("======FESTIVAL COUNT=======")
+    logger.debug(festivals.count)
+
+    unless params[:total_search].nil? || params[:total_search] == ""
+      univs = Univ.where("name LIKE ?", "%#{params[:total_search]}%")
+      logger.debug("==========UNIV COUNT====")
+      logger.debug(univs.count)
+      univs.each do |u|
+        festivals += u.festivals
+      end
+    end
+
+    festivals = festivals.uniq
 
 
     @fs = Kaminari.paginate_array(festivals).page(params[:page]).per(7)
