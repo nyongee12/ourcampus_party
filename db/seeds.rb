@@ -25,8 +25,30 @@ require 'csv'
 # file = open('public/FestivalSchedule.csv')
 # FestivalSchedule.import(file)
 
+# delete univ
+Univ.all.each { |u| u.destroy }
+#delete celeb
+Celeb.all.each { |c| c.destroy }
+
+# update festival
 file = open('public/Festival_2016May.csv')
 Festival.import(file)
+
+# update univ count
+Search.where.not(univ: "").pluck(:univ).each do |s|
+  Univ.where("name LIKE ?", "%#{s}%").each do |u|
+    u.count += 1
+    u.save
+  end
+end
+
+# update univ count
+Search.where.not(celeb: "").pluck(:celeb).each do |s|
+  Celeb.where("name LIKE ?", "%#{s}%").each do |c|
+    c.count += 1
+    c.save
+  end
+end
 
 =begin
 # make celeb
