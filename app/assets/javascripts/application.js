@@ -19,3 +19,4 @@
 //= require infinite_scroll
 //= require vticker
 //= require footer
+//= require loaders
