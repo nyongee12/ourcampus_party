@@ -4,7 +4,15 @@
   <%= render 'home/navbar' %>
   
   <div class="content-box">
-    <h3 id="detail-title"><%= @f.univ.name%>학교</h3>
+    <h3 id="detail-title">
+      <% @univname = @f.univ.name %>
+      <% if @univname.include? "(" %>
+        <% @univname = @univname.split("(") %>
+        <%= @univname[0] + "학교" + "(" + @univname[1] %>
+      <% else %>
+        <%= @univname + "학교" %>
+      <% end %>
+    </h3>
 
     <table class="table" id="detail-table">
       <tr>
@@ -25,7 +33,9 @@
       <%= image_tag("naver_map_logo", height: '64', width: '64') %>
     <% end %>
     </div>
+  
   </div>
+  
 </div>
   <%= render 'layouts/footer' %>
 </div><!--wrapper-->
