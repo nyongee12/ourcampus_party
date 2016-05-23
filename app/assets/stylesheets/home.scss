@@ -1,6 +1,27 @@
 
 @import 'datepicker-bootstrap';
 @import 'autocomplete-bootstrap';
+@import 'detail';
+
+@media (min-width: 600px) {  
+  #footer {
+     position:fixed;
+     bottom:0px;
+     height:118px;
+     width: 600px;
+     margin: 0 auto;
+  }
+}
+@media (max-width: 600px) {  
+  #footer {
+     position:fixed;
+     left:0px;
+     bottom:0px;
+     height:168px;
+     width:100%;
+     margin: 0 auto;
+  }
+}
 
 //섹션별 마진 설정
 .content-search-box {
@@ -94,21 +115,6 @@ th {
 }
 #result-table {
   font-size: 11pt;
-  text-align: center;
-}
-// 디테일 페이지 테이블
-#detail-table tr td {
-  color: #4d4d4d;    
-  font-size: 13pt;
-}
-// 디테일 페이지 타이틀
-#detail-title {
-  color: #ea4c89;
-  font-size: 20pt;
-  font-family: 'nanum_bold';
-  text-align: center;
-}
-#detail-table {
   text-align: center;
 }
 // close 아이콘 효과

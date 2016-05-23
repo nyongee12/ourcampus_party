@@ -1,3 +1,22 @@
+<style type="text/css">
+@media (min-width: 600px) {  
+  #footer {
+     position: relative;
+     height:118px;
+     width: 600px;
+     margin: 0 auto;
+  }
+}
+@media (max-width: 600px) {  
+  #footer {
+     position: relative;
+     height:168px;
+     width:100%;
+     margin: 0 auto;
+  }
+}
+</style>
+
 <div id="wrapper">
 <!--전체 콘테이너-->
 <div class="container-box">
@@ -40,7 +59,7 @@
     <div id="loading" style="display:none">
         <img src="/assets/loading-img.gif" />
     </div>
-   
+  <%= render 'layouts/footer' %> 
   </div><!--전체 콘테이너-->
-  <%= render 'layouts/footer' %>
+  
 </div><!--wrapper-->
