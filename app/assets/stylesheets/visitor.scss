@@ -60,3 +60,14 @@ input:focus { color: #EA4C89 }
       margin-top: 26px;
     }
 }
+#report-intro {
+  text-decoration: none;    
+  font-size: 14px;
+  color: #4d4d4d;
+  -webkit-font-smoothing: subpixel-antialiased;
+  -webkit-transition: border .25s linear, color .25s linear, background-color .25s linear;
+  transition: border .25s linear, color .25s linear, background-color .25s linear;
+}
+#report-intro:hover {
+  color: #EA4C89;
+}

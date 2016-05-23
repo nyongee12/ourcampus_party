@@ -6,9 +6,11 @@
             <div id="visitor-title" class="col-xs-12">
               <i class="fa fa-search" aria-hidden="true"></i>&nbsp;전국 대학 축제
             </div>
-            <%= text_field_tag :total_search, "", :autofocus => true, :class => 'form-control', :placeholder => '대학교, 라인업 검색하기' %>
+              
+          <%= text_field_tag :total_search, "", :autofocus => true, :class => 'form-control', :placeholder => '대학교, 라인업 검색하기' %>
           <%= submit_tag :total_search_submit, :class => 'btn btn-default', :style => 'display: none' %>
         <% end %>
+        
         <div class="row">
           
           <div class="col-xs-6 univ-rank-title">
@@ -61,6 +63,11 @@
               </ul>
             </div>
           </div>
+          <div style="margin-top: 65px">
+            <%= link_to 'http://goo.gl/forms/SQm0oHHbXsdIcfIh2', :id => 'report-intro', target: 'blank' do %>
+              <i class="fa fa-info-circle" aria-hidden="true"></i><span>제보하기</span>
+            <% end %>
+          </div>
         </div>
 
       </div>
@@ -77,9 +84,7 @@ $(function() {
       var value = $("#search-value<%= i%>").text();  
       $("#total_search").val(value);
       $("#total_search_form").submit();
-      
-    });
-    
+    });  
   <% end %>
 });
 </script>
